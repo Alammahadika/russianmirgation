@@ -363,3 +363,26 @@ if __name__ == "__main__":
 *Note: This is a sample of a larger dataset used for migration policy research.*
 ```
 
+After collecting all the data in the form of titles, descriptions, and first paragraphs, I clarified all the news from the titles and narratives (descriptions), then grouped them to frame the Issue Migration Policy.
+
+### 📊 News Analysis Framework Frequency
+
+| Framework               | Frequency | Visualization          |
+|-------------------------|-----------|------------------------|
+| **External Regulator**  | 59        | ████████████████████    |
+| **Political Implication** | 59      | ████████████████████    |
+| **Safety**             | 47        | █████████████████        |
+| **Crime and Punishment** | 45      | ████████████████         |
+| **Justice and Equality** | 38      | ████████████             |
+| **Capacity and Resources** | 36    | ███████████              |
+| **Economy**            | 32        | ██████████               |
+| **Public Sentiment**   | 30        | █████████                |
+| **Quality Life**       | 21        | ██████                   |
+| **Culture Identity**   | 17        | █████                    |
+| **Morality and Ethnic** | 7       | ██                       |
+
+**Total Frameworks Analyzed**: 11  
+**Total Frequency Count**: 391 news articles  
+
+
+
