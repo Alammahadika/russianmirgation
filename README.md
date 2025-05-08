@@ -237,26 +237,25 @@ if __name__ == "__main__":
 🔄 Scraping Central Asian news articles...
 
 🌐 Asia-Plus
-🔗 https://asiaplustj.info/...migrant-worker-options...
-📰 The West cautiously extends migrant worker options for Central Asia
-📝 New labor migration opportunities being considered...
-➡️ Excerpt: The European Union is considering expanding labor migration programs for Central Asian countries following...
+🔗 URL : https://asiaplustj.info/en/news/tajikistan/society/20240923/the-west-cautiously-extends-migrant-worker-options-for-central-asia
+📰 Title : The West cautiously extends migrant worker options for Central Asia | Tajikistan News ASIA-Plus
+📝 Description : No description found
+➡️ First Paragraph: Radio Liberty reported on September 23 that German Chancellor Olaf Scholz was tight-lipped on the details of the migration deal that his country finalized with Uzbekistan on September 15
 
 ───────────────────────────────────────────────────────
 
 🌐 Times of Central Asia
-🔗 https://timesca.com/...xenophobia-in-russia...
-📰 Tajik migrants facing xenophobia in Russia after Moscow attack
-📝 Reports of discrimination against Central Asian migrants...
-➡️ Excerpt: Central Asian migrant workers in Russia are reporting increased incidents of harassment following...
-
+🔗 URL : https://timesca.com/tajik-migrants-facing-xenophobia-in-russia-after-moscow-terrorist-attack/
+📰 Title :403 Forbidden
+📝 Description : No description found
+➡️ First Paragraph: No first paragraph found
 ───────────────────────────────────────────────────────
 
 🌐 Gazeta.uz
-🔗 https://www.gazeta.uz/.../migration/
-📰 Uzbekistan's migration policy changes
-📝 New regulations affect labor migrants...
-➡️ Excerpt: The Uzbek government has announced new measures to protect its citizens working abroad...
+🔗 URL : https://www.gazeta.uz/en/2016/11/04/migration/
+📰 Title :403 Forbidden
+📝 Description : No description found
+➡️ First Paragraph: No first paragraph found
 
 ✅ Successfully processed 3/3 articles
 ```
