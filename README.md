@@ -160,3 +160,79 @@ for entry in entries[:0]:  # collection news quantity
 
 ```
 Total articles retrieved: 0
+
+
+### 📰 Read Web News Article Scraper
+After getting the articles from the web page news, I will explain how to read some of the collected web page news.
+
+```python
+import requests
+from bs4 import BeautifulSoup
+
+# Sample news URLs from Central Asian sources
+NEWS_URLS = [
+    "https://asiaplustj.info/en/news/tajikistan/society/20240923/the-west-cautiously-extends-migrant-worker-options-for-central-asia",
+    "https://timesca.com/tajik-migrants-facing-xenophobia-in-russia-after-moscow-terrorist-attack/",
+    "https://www.gazeta.uz/en/2016/11/04/migration/"
+]
+
+def extract_article_data(url):
+    """
+    Extracts structured information from news articles
+    
+    Args:
+        url (str): URL of the news article
+        
+    Returns:
+        dict: Contains extracted metadata and content
+    """
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        return {
+            "url": url,
+            "title": get_meta_content(soup, 'title') or "No title found",
+            "description": get_meta_content(soup, 'description') or "No description",
+            "publisher": get_meta_content(soup, 'og:site_name') or "Unknown publisher",
+            "first_paragraph": get_first_paragraph(soup) or "No content extracted"
+        }
+        
+    except Exception as e:
+        return {"url": url, "error": str(e)}
+
+def get_meta_content(soup, property_name):
+    """Helper to extract meta tag content"""
+    tag = soup.find("meta", attrs={"name": property_name}) or \
+          soup.find("meta", attrs={"property": f"og:{property_name}"})
+    return tag.get("content").strip() if tag else None
+
+def get_first_paragraph(soup):
+    """Extracts the first meaningful paragraph"""
+    for p in soup.find_all("p"):
+        if len(p.text.strip()) > 50:  # Minimum character threshold
+            return p.text.strip()
+    return None
+
+# Execute scraping
+if __name__ == "__main__":
+    print("🔄 Scraping Central Asian news articles...\n")
+    
+    results = []
+    for url in NEWS_URLS:
+        article = extract_article_data(url)
+        results.append(article)
+        
+        # Print formatted output
+        print(f"🌐 {article.get('publisher', 'Unknown')}")
+        print(f"🔗 {article['url']}")
+        print(f"📰 {article.get('title')}")
+        print(f"📝 {article.get('description')}")
+        print(f"➡️ Excerpt: {article.get('first_paragraph')[:150]}...")
+        print("\n" + "─"*80 + "\n")
+
+    print(f"✅ Successfully processed {len([r for r in results if 'error' not in r])}/{len(NEWS_URLS)} articles")
+```
+
+
+
