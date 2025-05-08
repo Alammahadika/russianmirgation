@@ -17,3 +17,50 @@ Indicator research for analysis im used Issue Migration Policy according [Julia 
 | **External Regulator** | Agreements and intergovernmental relations                                |
 
 From the table above, analysis can be carried out to determine the indicators and variables in the analysis results.
+
+### State of Arts
+In the literature review, this thesis uses keywords based on 1,258 studies on Discourse Migration Policy. All studies were collected from the Scopus Site and created Events and keywords in VOSViewers, then the data was cleaned and produced 32 main keywords.
+
+## 📊 Migration-Related Keywords Frequency Analysis
+
+| Keyword                | Occurrences | Visual Representation       |
+|------------------------|-------------|-----------------------------|
+| **Migration**          | 472         | ████████████████████████     |
+| **Immigration Policy** | 238         | █████████████                |
+| **International Migration** | 147    | █████████                    |
+| **Refugee**            | 103         | ██████                       |
+| **Immigration**        | 115         | ██████                       |
+| **Immigrant**          | 67          | ████                         |
+| **Refugees**           | 64          | ████                         |
+| **Political Discourse** | 58       | ███                          |
+| **Immigrant Population** | 55       | ███                          |
+| **Asylum Seeker**      | 52          | ███                          |
+| **Human Rights**       | 57          | ███                          |
+| **Forced Migration**   | 53          | ███                          |
+| **Multiculturalism**   | 51          | ███                          |
+
+<details>
+<summary>📈 Show More Keywords (20+)</summary>
+
+| Keyword                | Occurrences | Visual Representation       |
+|------------------------|-------------|-----------------------------|
+| **Labor Migration**    | 46          | ██                          |
+| **Population Migration** | 45       | ██                          |
+| **Racism**             | 41          | ██                          |
+| **Migration Policy**   | 48          | ██                          |
+| **Migration Experience** | 28       | █                           |
+| **Borders**            | 23          | █                           |
+| **Migration Determinant** | 21     | █                           |
+| **Refugee Crisis**     | 24          | █                           |
+| **Trafficking**        | 20          | █                           |
+| **Violence**           | 16          | █                           |
+| **Discrimination**     | 13          | █                           |
+| **Xenophobia**         | 12          | █                           |
+| **Illegal Immigrant**  | 11          | █                           |
+| **Migration Crisis**   | 10          | █                           |
+| **Mass Media**         | 9           | █                           |
+| **Migrants Remittance** | 7        | █                           |
+| **Health Worker**      | 6           | █                           |
+| **Media Discourse**    | 5           | █                           |
+| **Islamophobia**       | 4           | █                           |
+</details>
