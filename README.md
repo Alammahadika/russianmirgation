@@ -346,18 +346,18 @@ if __name__ == "__main__":
 
 🔄 Result Read Web Page News articles.
 ```
-### 1. [Russia's Recruitment of Uzbek Migrants](https://daryo.uz/en/2022/12/09/russia-lures-uzbek-migrant-workers-to-its-army-by-offering-fast-track-citizenship)
+🔗: [Russia's Recruitment of Uzbek Migrants](https://daryo.uz/en/2022/12/09/russia-lures-uzbek-migrant-workers-to-its-army-by-offering-fast-track-citizenship)
 **Source**: DARYO.UZ - Uzbekistan News  
 **Published**: December 9, 2022  
-> 📌 **Description**: A photo of an advertisement in Uzbek language calling for service in the Russian Armed Forces in Moscow public transport has gone viral on social media platforms.
-> ✍️ **First Paragraph**: "A photo of an advertisement in Uzbek language calling for service in the Russian Armed Forces in Moscow public transport has gone viral on social media platforms."
+📌 **Description**: A photo of an advertisement in Uzbek language calling for service in the Russian Armed Forces in Moscow public transport has gone viral on social media platforms.
+✍️ **First Paragraph**: "A photo of an advertisement in Uzbek language calling for service in the Russian Armed Forces in Moscow public transport has gone viral on social media platforms."
 ---
 
-### 2. [Russian Migration to Uzbekistan](https://daryo.uz/en/2022/10/31/jan-sept-2022-over-300-000-russian-citizens-enter-uzbekistan)
+🔗: [Russian Migration to Uzbekistan](https://daryo.uz/en/2022/10/31/jan-sept-2022-over-300-000-russian-citizens-enter-uzbekistan)
 **Source**: Daryo News  
 **Published**: October 31, 2022  
-> 📌 **Description**: During the 9 months of 2022, 318,156 Russian citizens entered Uzbekistan.
-> ✍️ **First Paragraph**: "During the 9 months of 2022, 318,156 Russian citizens entered Uzbekistan."
+📌 **Description**: During the 9 months of 2022, 318,156 Russian citizens entered Uzbekistan.
+✍️ **First Paragraph**: "During the 9 months of 2022, 318,156 Russian citizens entered Uzbekistan."
 ---
 *Note: This is a sample of a larger dataset used for migration policy research.*
 ```
