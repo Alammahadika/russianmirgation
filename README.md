@@ -64,3 +64,47 @@ In the literature review, this thesis uses keywords based on 1,258 studies on Di
 | **Media Discourse**    | 5           | █                           |
 | **Islamophobia**       | 4           | █                           |
 </details>
+
+
+### 📊 Keywords in Migration Policy Research
+
+```r
+library(ggplot2)
+library(ggrepel)
+
+# Create visually enhanced scatter plot of keyword frequencies
+ggplot(keywordsmigrationpolicy, aes(x = Selected, y = Occurences)) +
+  geom_point(aes(color = ifelse(Keyword %in% c("Media Discourse", "Mass Media"), "red", "black")),
+             size = 0, alpha = 0.7) +
+  
+  # Smart labeling to avoid overlap
+  geom_text_repel(aes(label = Keyword, 
+                  color = ifelse(Keyword %in% c("Media Discourse", "Mass Media"), 
+                                "red", "black")),
+                  size = 3.5,
+                  max.overlaps = 30,
+                  box.padding = 0.5,
+                  segment.color = 'grey50') +
+  
+  # Trend line
+  geom_smooth(method = "loess", se = FALSE, color = "blue", linetype = "dashed") +
+  
+  # Labels and titles
+  labs(title = "Keyword Frequency in Migration Policy Research",
+       subtitle = "Analysis of Academic Literature (n = 1,500+ articles)",
+       x = "Keyword Categories",
+       y = "Frequency Count",
+       caption = "Note: Media-related keywords highlighted in red") +
+  
+  # Visual enhancements
+  ylim(min(keywordsmigrationpolicy$Occurences) - 10,
+       max(keywordsmigrationpolicy$Occurences) + 10) +
+  scale_color_identity() +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5, color = "gray40"),
+    panel.grid.major = element_line(color = "gray90"),
+    axis.title = element_text(face = "bold")
+  )
+
