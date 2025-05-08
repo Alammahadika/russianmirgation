@@ -129,5 +129,34 @@ I have managed to collect 391 news through both screaping and manual techniques.
 
 **Total Collected Articles**: 391  
 **Collection Method**: Web scraping + manual collection  
-**Period**: [Insert your data collection timeframe]  
+ 
+### Collection News (Scraped)
 
+```py 
+import feedparser
+
+rss_url = ""  # URL feed
+feed = feedparser.parse(rss_url)
+
+for entry in feed.entries:
+    print(f"Title: {entry.title}")
+    print(f"Link: {entry.link}")
+    print(f"Published: {entry.published}\n")
+
+rss_urls = ["URL News"]
+
+entries = []
+
+for url in rss_urls:
+    feed = feedparser.parse(url)
+    entries.extend(feed.entries)
+
+print(f"Total articles retrieved: {len(entries)}")
+
+for entry in entries[:0]:  # collection news quantity
+    print(f"Title: {entry.title}")
+    print(f"Link: {entry.link}")
+    print(f"Published: {entry.published}\n")
+
+```
+Total articles retrieved: 0
