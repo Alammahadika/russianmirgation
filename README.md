@@ -259,3 +259,88 @@ if __name__ == "__main__":
 
 ✅ Successfully processed 3/3 articles
 ```
+
+### Read Web Page Error
+Web page some error, and i show code if page error or problem
+
+```python
+from urllib.request import urlopen, Request
+from bs4 import BeautifulSoup
+import pandas as pd
+
+# Central Asian news sources to monitor
+NEWS_URLS = [
+    "https://daryo.uz/en/2022/12/09/russia-lures-uzbek-migrant-workers-to-its-army-by-offering-fast-track-citizenship",
+    "https://daryo.uz/en/2022/10/31/jan-sept-2022-over-300-000-russian-citizens-enter-uzbekistan"
+]
+
+# Browser headers to avoid bot detection
+HEADERS = { 'User-Agent': ''}
+
+def scrape_news_articles(url_list):
+    """
+    Scrape news articles from given URLs
+    
+    Args:
+        url_list (list): List of news article URLs
+        
+    Returns:
+        list: Dictionary of extracted article data
+    """
+    articles_data = []
+    
+    for url in url_list:
+        try:
+            # Send request with headers
+            req = Request(url, headers=HEADERS)
+            response = urlopen(req)
+            html = response.read()
+            
+            # Parse HTML content
+            soup = BeautifulSoup(html, 'html.parser')
+            
+            # Extract article components
+            article = {
+                'URL': url,
+                'Title': get_article_title(soup),
+                'Description': get_meta_description(soup),
+                'First Paragraph': get_first_paragraph(soup),
+                'Source': 'Daryo.uz'  # Can be extracted dynamically
+            }
+            articles_data.append(article)
+            
+        except Exception as e:
+            print(f"⚠️ Error processing {url}: {str(e)}")
+            articles_data.append({
+                'URL': url,
+                'Error': str(e)
+            })
+    
+    return articles_data
+
+def get_article_title(soup):
+    """Extract article title"""
+    return soup.title.string.strip() if soup.title else "No title found"
+
+def get_meta_description(soup):
+    """Extract meta description"""
+    meta = soup.find('meta', attrs={'name': 'description'})
+    return meta['content'].strip() if meta else "No description available"
+
+def get_first_paragraph(soup):
+    """Extract first meaningful paragraph"""
+    for p in soup.find_all('p'):
+        if p.text.strip() and len(p.text.strip()) > 20:
+            return p.text.strip()
+    return "No content found"
+
+if __name__ == "__main__":
+    print("🚀 Starting Central Asian news scraper...")
+    articles = scrape_news_articles(NEWS_URLS)
+    
+    # Convert to DataFrame for better visualization
+    df = pd.DataFrame(articles)
+    print("\n📰 Scraped Articles Summary:")
+    print(df[['Title', 'Source']])
+```
+
