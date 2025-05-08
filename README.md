@@ -114,5 +114,20 @@ ggplot(keywordsmigrationpolicy, aes(x = Selected, y = Occurences)) +
 Result Occurrences and keywords, this thesis create visual for showing literature about Discourse Migration Policy dominant theme research such as Migration, Immigration Policy and International Migration. So the utilization of this research keyword map is to identify gaps in migration discourse related to Media Discourse and Mass Media issues, which have not been widely discussed in previous research.
 
 
-### Method Thesis
+### Process Method Thesis
+
+I have managed to collect 391 news through both screaping and manual techniques. The most news came from Kyrgyzstan, which is 101 news, followed by Uzbekistan 98 news, Tajikistan 81 news, Turkmenistan 66 news and the least is Kazakhstan 45 news.
+# 📰 Distribution of Collected News Articles by Central Asian Country
+
+| Country       | Flag | Number of Articles | Percentage | Visual Representation      |
+|--------------|------|-------------------|------------|----------------------------|
+| Kyrgyzstan   | 🇰🇬   | 101               | 25.8%      | ████████████████████        |
+| Uzbekistan   | 🇺🇿   | 98                | 25.1%      | ███████████████████         |
+| Tajikistan   | 🇹🇯   | 81                | 20.7%      | ██████████████              |
+| Turkmenistan | 🇹🇲   | 66                | 16.9%      | ███████████                 |
+| Kazakhstan   | 🇰🇿   | 45                | 11.5%      | ███████                     |
+
+**Total Collected Articles**: 391  
+**Collection Method**: Web scraping + manual collection  
+**Period**: [Insert your data collection timeframe]  
 
