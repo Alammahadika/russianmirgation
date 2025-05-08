@@ -499,5 +499,6 @@ The most news came from Kyrgyzstan, which was 101 news, followed by Uzbekistan w
   # Display the plot
   p
 
-```r 
+```
 
+![](datavisual/circle_visual.png)
