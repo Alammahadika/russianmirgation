@@ -384,5 +384,120 @@ After collecting all the data in the form of titles, descriptions, and first par
 **Total Frameworks Analyzed**: 11  
 **Total Frequency Count**: 391 news articles  
 
+### Clarifed Each Country 
+The most news came from Kyrgyzstan, which was 101 news, followed by Uzbekistan with 98 news, Tajikistan with 81 news, Turkmenistan with 66 news and the least was Kazakhstan with 45 news. The news was grouped into various frameworks to describe the main themes frequently covered by Central Asian media regarding Migration Policy in Russia.
 
+```r
+  library(ggplot2)
+  library(dplyr)
+  
+  # Data Frame
+  
+  data <- data.frame(
+    individual = c("Political Implication", "External Regulator", "Crime and Punishment", 
+                   "Public Sentiment", "Economy", "Justice and Equality", "Safety", 
+                   "Quality Life", "Capacity and Resources", "Culture Identity",
+                   "Political Implication", "Crime and Punishment", "Safety", 
+                   "Capacity and Resources", "Justice and Equality", "External Regulator",
+                   "Public Sentiment", "Culture Identity", "Economy", "Quality Life",
+                   "Safety", "Political Implication", "Crime and Punishment", 
+                   "Public Sentiment", "Capacity and Resources", "Justice and Equality", 
+                   "External Regulator", "Economy", "Quality Life", "Culture Identity",
+                   "Morality and Ethic", "External Regulator", "Justice and Equality", 
+                   "Political Implication", "Economy", "Safety", "Quality Life", 
+                   "Capacity and Resources", "Morality and Ethic", "Culture Identity", 
+                   "Crime and Punishment", "Public Sentiment", "External Regulator", 
+                   "Economy", "Justice and Equality", "Safety", "Capacity and Resources", 
+                   "Crime and Punishment", "Quality Life", "Morality and Ethic", 
+                   "Public Sentiment", "Culture Identity"),
+    value = c(22, 14, 10, 9, 8, 4, 4, 4, 3, 3, 
+              15, 15, 15, 15, 11, 8, 7, 6, 5, 4, 
+              17, 15, 13, 10, 9, 9, 8, 7, 5, 4, 
+              1, 18, 8, 7, 6, 6, 5, 4, 4, 3, 
+              3, 2, 11, 6, 6, 5, 5, 4, 3, 2, 2, 1),
+    group = c(rep("Tajikistan", 10), rep("Kyrgyzstan", 10), rep("Uzbekistan", 11), 
+              rep("Turkmenistan", 11), rep("Kazakhstan", 10))
+  )
+  
+  # Add empty bars
+  empty_bar <- 3
+  to_add <- data.frame(matrix(NA, empty_bar * nlevels(as.factor(data$group)), ncol(data)))
+  colnames(to_add) <- colnames(data)
+  to_add$group <- rep(levels(as.factor(data$group)), each = empty_bar)
+  data <- rbind(data, to_add)
+  data <- data %>% arrange(group)
+  data$id <- seq(1, nrow(data))
+  
+  # Label data preparation 
+  label_data <- data
+  number_of_bar <- nrow(label_data)
+  angle <- 90 - 360 * (label_data$id - 0.5) / number_of_bar
+  label_data$hjust <- ifelse(angle < -90, 1, 0)
+  label_data$angle <- ifelse(angle < -90, angle + 180, angle)
+  
+  # Base data for grouping
+  base_data <- data %>%
+    group_by(group) %>%
+    summarize(start = min(id), end = max(id) - empty_bar) %>%
+    rowwise() %>%
+    mutate(title = mean(c(start, end)))
+  
+  # Grid data for scale lines
+  grid_data <- base_data
+  grid_data$end <- grid_data$end[c(nrow(grid_data), 1:nrow(grid_data) - 1)] + 1
+  grid_data$start <- grid_data$start - 1
+  grid_data <- grid_data[-1, ]
+  
+  p <- ggplot(data, aes(x = as.factor(id), y = value, fill = group)) +
+    geom_bar(stat = "identity", alpha = 0.5, fill = "black") +
+    
+    # Grid lines
+    geom_segment(data = grid_data, aes(x = end, y = 100, xend = start, yend = 100), 
+                 colour = "black", size = 0.3, inherit.aes = FALSE) +
+    geom_segment(data = grid_data, aes(x = end, y = 80, xend = start, yend = 80), 
+                 colour = "black", size = 0.3, inherit.aes = FALSE) +
+    geom_segment(data = grid_data, aes(x = end, y = 60, xend = start, yend = 60), 
+                 colour = "black", size = 0.3, inherit.aes = FALSE) +
+    geom_segment(data = grid_data, aes(x = end, y = 40, xend = start, yend = 40), 
+                 colour = "black", size = 0.3, inherit.aes = FALSE) +
+    geom_segment(data = grid_data, aes(x = end, y = 20, xend = start, yend = 20), 
+                 colour = "black", size = 0.3, inherit.aes = FALSE) +
+    
+  
+    # Circular bar plot
+    ylim(-100, 120) +
+    theme_minimal() +
+    theme(
+      legend.position = "none",
+      axis.text = element_blank(),
+      axis.title = element_blank(),
+      panel.grid = element_blank(),
+      plot.margin = unit(rep(-1, 4), "cm")
+    ) +
+    coord_polar() +
+    
+    # Labels for individual bars 
+    # point label behind in text
+    # add point upper bar
+    # label point behind in text label
+    geom_text(data = label_data, 
+              aes(x = id, y = value + 10, label = paste0(individual, " (", value, ")"), hjust = hjust),
+              color = "black", fontface = "bold", alpha = 0.8, size = 3, 
+              angle = label_data$angle, inherit.aes = FALSE) +
+    
+    # Base lines and group titles
+    geom_segment(data = base_data, 
+                 aes(x = start, y = -10, xend = end, yend = -10), 
+                 colour = "black", size = 0.6, inherit.aes = FALSE) +
+    geom_text(data = base_data, 
+              aes(x = title, y = -40, label = group),  # Turunkan y untuk lebih rapi
+              hjust = 0.5,  # Center alignment
+              vjust = 0.5,  # Vertikal tengah
+              colour = "black", 
+              size = 3, fontface = "bold", inherit.aes = FALSE)
+  
+  # Display the plot
+  p
+
+```r 
 
