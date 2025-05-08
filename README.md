@@ -109,5 +109,6 @@ ggplot(keywordsmigrationpolicy, aes(x = Selected, y = Occurences)) +
   )
 ```
 
-
 ![Keyword Frequency in Migration](datavisual/16c5308f-0603-47ce-849e-d16b9e1ade8c.png)
+
+Result Occurrences and keywords, this thesis create visual for showing literature about Discourse Migration Policy dominant theme research such as Migration, Immigration Policy and International Migration. So the utilization of this research keyword map is to identify gaps in migration discourse related to Media Discourse and Mass Media issues, which have not been widely discussed in previous research.
