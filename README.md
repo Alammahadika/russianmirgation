@@ -109,4 +109,5 @@ ggplot(keywordsmigrationpolicy, aes(x = Selected, y = Occurences)) +
   )
 ```
 
+![Keyword Frequency in Migration](russianmigration/16c5308f-0603-47ce-849e-d16b9e1ade8c.png)
 
