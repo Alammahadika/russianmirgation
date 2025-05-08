@@ -107,4 +107,6 @@ ggplot(keywordsmigrationpolicy, aes(x = Selected, y = Occurences)) +
     panel.grid.major = element_line(color = "gray90"),
     axis.title = element_text(face = "bold")
   )
+```
+
 
