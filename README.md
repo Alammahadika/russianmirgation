@@ -233,6 +233,30 @@ if __name__ == "__main__":
 
     print(f"✅ Successfully processed {len([r for r in results if 'error' not in r])}/{len(NEWS_URLS)} articles")
 ```
+```
+🔄 Scraping Central Asian news articles...
 
+🌐 Asia-Plus
+🔗 https://asiaplustj.info/...migrant-worker-options...
+📰 The West cautiously extends migrant worker options for Central Asia
+📝 New labor migration opportunities being considered...
+➡️ Excerpt: The European Union is considering expanding labor migration programs for Central Asian countries following...
 
+───────────────────────────────────────────────────────
 
+🌐 Times of Central Asia
+🔗 https://timesca.com/...xenophobia-in-russia...
+📰 Tajik migrants facing xenophobia in Russia after Moscow attack
+📝 Reports of discrimination against Central Asian migrants...
+➡️ Excerpt: Central Asian migrant workers in Russia are reporting increased incidents of harassment following...
+
+───────────────────────────────────────────────────────
+
+🌐 Gazeta.uz
+🔗 https://www.gazeta.uz/.../migration/
+📰 Uzbekistan's migration policy changes
+📝 New regulations affect labor migrants...
+➡️ Excerpt: The Uzbek government has announced new measures to protect its citizens working abroad...
+
+✅ Successfully processed 3/3 articles
+```
