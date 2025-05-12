@@ -510,42 +510,36 @@ During my thesis work, after classification into framework categories, I perform
 
 ```python
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import classification_report, accuracy_score
-from imblearn.over_sampling import RandomOverSampler
+import pandas as pd
 
-# Load Data
-df = pd.read_excel("")
+#  Load Data
+df = pd.read_excel("/Users/mymac/Desktop/allnews.xlsx")
 
 #  Data Preprocessing
 df = df.dropna(subset=['Paragraph', 'Frameworks'])
+
+# Remove classes with less than 2 samples
 df = df[df['Frameworks'].map(df['Frameworks'].value_counts()) >= 2]
 
-#  TF-IDF Vectorizer
+# TF-IDF Vectorizer
 tfidf = TfidfVectorizer(stop_words='english', max_features=5000)
 X = tfidf.fit_transform(df['Paragraph'])
 y = df['Frameworks']
 
-#  Split Data
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.15, random_state=42, stratify=y)
-
-#  Oversampling
-ros = RandomOverSampler(random_state=42)
-X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
-
-#  Train Model
+# Train Model on All Data
 model = LogisticRegression(max_iter=1000, class_weight='balanced', random_state=42)
-model.fit(X_resampled, y_resampled)
+model.fit(X, y)
 
-#  Evaluate Model
-y_pred = model.predict(X_test)
+# Predict on the Same Data
+y_pred = model.predict(X)
+
+# Evaluate Model
 print("Classification Report:")
-print(classification_report(y_test, y_pred))
-print(f"Accuracy Score: {accuracy_score(y_test, y_pred):.2f}")
-
+print(classification_report(y, y_pred))
+print(f"Accuracy Score: {accuracy_score(y, y_pred):.2f}")
 
 ```
 
@@ -598,4 +592,7 @@ The precision results in the classification report show that almost all frames h
   - Relation Narrative Framework
   - Analysis Subjectivits & Polarity
   
+## Latent Dirichlet Allocation (LDA)
+The Latent Dirichlet Allocation (LDA) method of this study analyzes using machine learning to produce the most dominant news distribution patterns. With an approach such as coherence score (n_components) which measures the topic narrative related to the framework. The higher the coherence score, the more relevant the narrative in one news item.
 
+```python
