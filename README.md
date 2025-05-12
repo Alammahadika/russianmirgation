@@ -596,3 +596,57 @@ The precision results in the classification report show that almost all frames h
 The Latent Dirichlet Allocation (LDA) method of this study analyzes using machine learning to produce the most dominant news distribution patterns. With an approach such as coherence score (n_components) which measures the topic narrative related to the framework. The higher the coherence score, the more relevant the narrative in one news item.
 
 ```python
+
+
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.decomposition import LatentDirichletAllocation
+
+
+# processing text and clening text
+def preprocess_text(text):
+    text = text.lower()  #  change small words
+    text = re.sub(r'[^a-z\s]', '', text)  # delete number 
+    return text
+  
+# Must not have NaN in coulumns 'description'
+data['Paragraph'] = data['Paragraph'].fillna('')  # change NaN with string empty
+
+# save decsription in variable
+Paragraph = data['Paragraph']
+
+
+import re
+
+# implementation to columns 'description'
+Paragraph = Paragraph.apply(preprocess_text)
+
+
+# Vectorize teks
+vectorizer = CountVectorizer(stop_words='english')  # delete stop words
+X = vectorizer.fit_transform(Paragraph)  # Hasilkan bag-of-words
+
+# LDA
+lda = LatentDirichletAllocation(n_components=101, random_state=42)  # choose topic
+lda.fit(X)
+
+#  showing dominant topic and dominant text
+n_top_words = 10  # summary words want to showing
+feature_names = vectorizer.get_feature_names_out()  #  get fiture (words)
+
+for topic_idx, topic in enumerate(lda.components_):
+    print(f"Topik {topic_idx + 1}:")
+    top_words = [feature_names[i] for i in topic.argsort()[:-n_top_words - 1:-1]]
+    print(" ".join(top_words))
+
+# Distribution topic for each document
+theta = lda.transform(X)  # n_documents x n_topics
+print(pd.DataFrame(theta, columns=[f"Topic {i+1}" for i in range(lda.n_components)]))
+
+# Dominant topict each document
+dominant_topics = theta.argmax(axis=1)  # Index topic with highest probility 
+data['Dominant_Topic'] = dominant_topics + 1  # Indeks start form 0, so add 1
+print(data[['Paragraph', 'Dominant_Topic']])
+
+```
+
+
