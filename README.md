@@ -649,4 +649,4 @@ print(data[['Paragraph', 'Dominant_Topic']])
 
 ```
 
-
+![](datavisual/heatmap_analysis.png)
