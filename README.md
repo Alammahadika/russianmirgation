@@ -648,5 +648,25 @@ data['Dominant_Topic'] = dominant_topics + 1  # Indeks start form 0, so add 1
 print(data[['Paragraph', 'Dominant_Topic']])
 
 ```
+```r
 
+library(readxl)
+  Analysis_frame_Heatmap <- read_excel("Desktop/Reseacrh Immigrant/Analysis_frame_Heatmap.xlsx")
+  View(Analysis_frame_Heatmap)
+  
+  library(ggplot2)
+  ggplot(heatmap, aes(x = Country, y = Framework, fill = `Score Dominant`))+
+    geom_tile(colour = "black", linewidth=1.5)+
+    scale_fill_gradient(low = "white", high = "black") +
+    geom_text(aes(label = round(`Score Dominant`, 2)), color = 'brown4', size = 3) +
+    theme_bw() +
+    labs(title = "Russian Migration Policy Topics Dominant in the News of Every Central Asian Country",
+         subtitle ="By: Latent Dirichlet Allocation (LDA)")+
+    theme(plot.title = element_text(face = "bold")) +
+    theme(plot.title = element_text(face = "bold", size = 12),
+          plot.subtitle = element_text(size = 11),
+          plot.caption = element_text(size = 10, hjust = 0)) +
+    theme(plot.margin = margin(t = 10, r = 10, b = 10, l = 10))
+  
+```
 ![](datavisual/heatmap_analysis.png)
