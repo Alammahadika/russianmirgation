@@ -506,3 +506,46 @@ The most news came from Kyrgyzstan, which was 101 news, followed by Uzbekistan w
 The analysis results show that the main categories that often appear are Political Implication, External regulator, and Safety. All countries generally highlight Political Implication and External Regulator as the main themes, indicating that the impact of political implications is a crucial issue in Russia's migration policy.
 
 ### Data Accurate or Dianostic Data 
+During my thesis work, after classification into framework categories, I performed accurate data diagnostics and prediction of each news frame through classification statistics. Process calculate "Paragraph" and Frameworks".
+
+```python
+
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report, accuracy_score
+
+# Load Data
+df 
+
+# Data Preprocessing
+# Drop rows with NaN in 'Paragraph' or 'Frameworks'
+df = df.dropna(subset=['Paragraph', 'Frameworks'])
+
+# Remove classes with less than 2 samples
+df = df[df['Frameworks'].map(df['Frameworks'].value_counts()) >= 2]
+
+# TF-IDF Vectorizer
+tfidf = TfidfVectorizer(stop_words='english', max_features=5000)
+X = tfidf.fit_transform(df['Paragraph'])
+y = df['Frameworks']
+
+# Split Data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+# Train Model
+model = LogisticRegression(max_iter=1000, class_weight='balanced', random_state=42)
+model.fit(X_train, y_train)
+
+# Evaluate Model
+y_pred = model.predict(X_test)
+
+# Classification Report
+print("Classification Report:")
+print(classification_report(y_test, y_pred))
+
+# Accuracy Score
+print(f"Accuracy Score: {accuracy_score(y_test, y_pred):.2f}")
+
+```
