@@ -592,5 +592,10 @@ print(f"Accuracy Score: {accuracy_score(y_test, y_pred):.2f}")
 The precision results in the classification report show that almost all frames have values close to 1.00 (100%), which means that the model is rarely wrong in predicting frames. Recall also shows a high ability to detect news in each frame. F1-socre reflects the optimal balance between precision and recall
 
 
-## 📊Analysis Data 
+## 📊Analysis Data Used four stages analysis;
+  **Laten Dirichlet Allocation(LDA)** 
+  **Bigram Analysis** 
+  **Relation Narrative Framework** 
+  **Analysis Subjectivits & Polarity**
+  
 
