@@ -549,9 +549,8 @@ print(f"Accuracy Score: {accuracy_score(y_test, y_pred):.2f}")
 
 ```
 
-# 📊 Classification Oversampling Performance Report (Accuracy: 97%)
+### 📊 Classification Oversampling Performance Report (Accuracy: 97%)
 
-## Model Evaluation Metrics by Framework Category
 
 | Framework                | Precision | Recall | F1-Score | Support | Visual Score      |
 |--------------------------|-----------|--------|----------|---------|-------------------|
@@ -576,18 +575,18 @@ print(f"Accuracy Score: {accuracy_score(y_test, y_pred):.2f}")
 **Total Samples**: 391  
 
 ### 🔍 Key Observations
-1. **Perfect Performance** (1.00 F1-score):
+**Perfect Performance** (1.00 F1-score):
    - Capacity and Resources
    - Culture Identity
 
-2. **Highest Support Categories**:
+**Highest Support Categories**:
    - External Regulator (59 samples)
    - Political Implication (59 samples)
 
-3. **Most Challenging Category**:
+**Most Challenging Category**:
    - Morality and Ethic (Precision: 0.88)
 
-4. **Consistent Performance**:
+**Consistent Performance**:
    - 9/11 categories have F1-score ≥ 0.95
 
 
