@@ -502,3 +502,5 @@ The most news came from Kyrgyzstan, which was 101 news, followed by Uzbekistan w
 ```
 
 ![](datavisual/circle_visual.png)
+
+The analysis results show that the main categories that often appear are Political Implication, External regulator, and Safety. All countries generally highlight Political Implication and External Regulator as the main themes, indicating that the impact of political implications is a crucial issue in Russia's migration policy.
