@@ -668,6 +668,8 @@ print(data[['Paragraph', 'Dominant_Topic']])
 
 [98 rows x 2 columns]
 
+After got Dominant Topic, i made Heat Map visual for result dominant topic each country
+
 ```
 
 ```r
