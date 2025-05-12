@@ -597,9 +597,12 @@ The Latent Dirichlet Allocation (LDA) method of this study analyzes using machin
 
 ```python
 
-
+import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
+
+# callculate each country - i just showing from Uzbekistan Media
+data = pd.read_excel("/Users/mymac/Desktop/Uzbekistan_News_Media copy.xlsx")
 
 
 # processing text and clening text
@@ -648,6 +651,25 @@ data['Dominant_Topic'] = dominant_topics + 1  # Indeks start form 0, so add 1
 print(data[['Paragraph', 'Dominant_Topic']])
 
 ```
+```
+>>> print(data[['Paragraph', 'Dominant_Topic']])
+                                            Paragraph  Dominant_Topic
+0   The flow of labor migrants from Uzbekistan to ...              37
+1   The Agency for External Labor Migration has as...              19
+2   Delegation of the Ministry of Labour of Uzbeki...              37
+3   Russia’s Ministry of Internal Affairs (MIA) pr...              29
+4   Russia remains the main destination country fo...              25
+..                                                ...             ...
+93  According to reports from the Migration Agency...              18
+94  The corresponding decree was signed by the reg...              34
+95  Citizens of Uzbekistan residing in Russia and ...              87
+96  Earlier, the news spread on social networks th...              27
+97  Authorities in the Voronezh region reported th...              61
+
+[98 rows x 2 columns]
+
+```
+
 ```r
 
 library(readxl)
