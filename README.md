@@ -696,3 +696,5 @@ library(readxl)
 ![](datavisual/heatmap_analysis.png)
 
 The results of the study show that the most dominant topic is Political Implications, which is the main focus of almost all Central Asian countries except Kazakhstan. Kazakhstan and Uzbekistan have a more even distribution of frameworks compared to Kyrgyzstan, where Political Implications are very dominant. The case shows that Russian policies have a direct impact on all aspects of migrants' lives
+
+## Bigram Text Analysis
