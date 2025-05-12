@@ -548,3 +548,48 @@ print(f"Accuracy Score: {accuracy_score(y_test, y_pred):.2f}")
 
 
 ```
+
+# 📊 Classification Oversampling Performance Report (Accuracy: 97%)
+
+## Model Evaluation Metrics by Framework Category
+
+| Framework                | Precision | Recall | F1-Score | Support | Visual Score      |
+|--------------------------|-----------|--------|----------|---------|-------------------|
+| **Capacity and Resources** | 1.00      | 1.00   | 1.00     | 36      | █████████████████ |
+| **Crime and Punishment**  | 0.98      | 0.98   | 0.98     | 45      | ████████████████  |
+| **Culture Identity**      | 1.00      | 1.00   | 1.00     | 17      | █████████████████ |
+| **Economy**               | 1.00      | 0.97   | 0.98     | 32      | ████████████████  |
+| **External Regulator**    | 0.93      | 0.97   | 0.95     | 59      | ██████████████    |
+| **Justice and Equality**  | 1.00      | 0.92   | 0.96     | 38      | ███████████████   |
+| **Morality and Ethic**    | 0.88      | 1.00   | 0.97     | 7       | ███████████████   |
+| **Political Implication** | 1.00      | 0.97   | 0.98     | 59      | ████████████████  |
+| **Public Sentiment**      | 0.94      | 1.00   | 0.97     | 30      | ███████████████   |
+| **Quality Life**          | 0.95      | 0.95   | 0.95     | 21      | ██████████████    |
+| **Safety**                | 0.96      | 0.98   | 0.97     | 47      | ███████████████   |
+
+### Summary Statistics
+| Metric          | Precision | Recall | F1-Score |
+|-----------------|-----------|--------|----------|
+| **Macro Avg**   | 0.97      | 0.98   | 0.97     |
+| **Weighted Avg**| 0.97      | 0.97   | 0.97     |
+
+**Total Samples**: 391  
+
+### 🔍 Key Observations
+1. **Perfect Performance** (1.00 F1-score):
+   - Capacity and Resources
+   - Culture Identity
+
+2. **Highest Support Categories**:
+   - External Regulator (59 samples)
+   - Political Implication (59 samples)
+
+3. **Most Challenging Category**:
+   - Morality and Ethic (Precision: 0.88)
+
+4. **Consistent Performance**:
+   - 9/11 categories have F1-score ≥ 0.95
+
+
+
+
