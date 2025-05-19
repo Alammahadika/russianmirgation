@@ -871,7 +871,6 @@ Since the data is descriptive and all relationships have the same weight, the th
 
 ### Core Framewokrs & Their Intersections
 **Safety**: Dominated by terrorism/war narratives ("detecting crime fighting terrorism")
-   - Directly links to:
    - Political Implication (e.g., "citizen participating waUkraine"),
    -  Crime & Punishment (e.g., "basis terrorist group Russia")
 
