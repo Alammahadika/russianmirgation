@@ -977,6 +977,9 @@ Dataframe dengan Polarity dan Subjectivity:
 
 ```r
 
+library(readxl)
+  data <-read_excel()
+
   library(ggplot2)
   ggplot(data_pol_sub, aes(x = sentimen_vader_transformers, y = subjectivity, color = Country)) +
     geom_point(size = 1.5)+
