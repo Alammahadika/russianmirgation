@@ -1002,6 +1002,5 @@ library(readxl)
     geom_hline(yintercept = 0.5, linetype = "dashed", color = "grey") 
 
 ```
-
-
+![](datavisual/SubjectObjectAnalysis.png)
 
