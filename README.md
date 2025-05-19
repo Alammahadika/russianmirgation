@@ -808,7 +808,7 @@ After getting the data analysis from Bigram, I made improvements between the fra
 
 ### Bigram Analysis by Theme: Analysis of Central Asian Media Discourse on Russian Migrants
 
-| Category               | Top Bigrams                                                                 | Key Insights                                                                 |
+| Framework               | Top Bigrams                                                                 | Key Insights                                                                 |
 |------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | **Security**           | `current attack crocus city`, `terrorist attack 14 people`                 | Focus on terrorist threats and military operations involving migrants        |
 | **Cultural Identity**  | `adaptation course labor migrants`, `knowledge russian language foreigners` | Cultural/language adaptation as primary challenges                          |
@@ -821,4 +821,4 @@ After getting the data analysis from Bigram, I made improvements between the fra
 | **Crime**              | `296 foreign citizens illegally`, `crackdown illegal migrants`             | Law enforcement against illegal migration and human trafficking              |
 | **Economy**            | `countries highest shares remittances`, `remittances labor migrants`       | Migrant remittances as significant economic contributors                    |
 
-From the results of the Bigram analysis that connects the frameworks and news narratives, it was found that the Safety framework has the highest frequency, with narratives such as "terrorist attack crocus city" and "caution light recent military". This shows that the Safety framework is more associated with the issue of terrorism threats and military activities.
+From the results of the Bigram analysis that connects the frameworks and news narratives, it was found that the Safety framework has the highest frequency, with narratives such as "terrorist attack crocus city" and "caution light recent military". This shows that the Safety framework is more associated with the issue of terrorism threats and military activities. Than i created analysis Relation Narrative Framework, aims for find any frameworks into news narrative. 
