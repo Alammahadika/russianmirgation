@@ -884,6 +884,93 @@ Since the data is descriptive and all relationships have the same weight, the th
    - Political Implication: Visa/ban policies
 
 ### Subejectivity & Polarity Analysis
-The purpose of this analysis is to measure positive and negative sentiments in news discourse, then calculate the dominance of positive and negative narratives and read the polarization and subjectivity of the news.
+The purpose of this analysis is to measure positive and negative sentiments in news discourse, then calculate the dominance of positive and negative narratives and read the polarization and subjectivity of the news by Textblob.
 For avoid point 0.00 (NEUTRAL), my thesis used VADER and Transformer Model.
 
+```py
+
+import pandas as pd
+from textblob import TextBlob
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+df = pd.DataFrame(data)
+
+# Inisialisasi VADER 
+
+analyzer = SentimentIntensityAnalyzer()
+
+# for calculations polarity dan subjectivity
+def analyze_sentiment_custom(text):
+    scores = analyzer.polarity_scores(text)
+    # Hitung polarity sebagai selisih positif dan negatif
+    polarity = scores['pos'] - scores['neg']
+    # Hitung subjectivity sebagai proporsi (positif + negatif) dari total sentiment (positif + negatif + netral)
+    subjectivity = (scores['pos'] + scores['neg']) / (scores['pos'] + scores['neg'] + scores['neu'])
+    return polarity, subjectivity
+
+#  colums teks
+df[['polarity', 'subjectivity']] = df['Paragraph'].apply(
+    lambda x: pd.Series(analyze_sentiment_custom(x))
+)
+
+#  polarity dan subjectivity for all dataset
+average_polarity = df['polarity'].mean()
+average_subjectivity = df['subjectivity'].mean()
+
+print("Dataframe dengan Polarity dan Subjectivity:")
+print(df)
+
+print("\nRata-rata Polarity dan Subjectivity Keseluruhan:")
+print(f"Polarity: {average_polarity:.2f}, Subjectivity: {average_subjectivity:.2f}")
+
+
+# Inisialisasi VADER
+analyzer = SentimentIntensityAnalyzer()
+
+# polarity with VADER
+def calculate_polarity_vader(text):
+    scores = analyzer.polarity_scores(text)
+    return scores['pos'] - scores['neg']  # Hanya mempertimbangkan positif dan negatif
+
+#  subjectivity with TextBlob
+def calculate_subjectivity_textblob(text):
+    blob = TextBlob(text)
+    return blob.sentiment.subjectivity
+
+# implementation  for polarity and subjectivity
+df['polarity'] = df['Paragraph'].apply(calculate_polarity_vader)
+df['subjectivity'] = df['Paragraph'].apply(calculate_subjectivity_textblob)
+
+#  polarity dan subjectivity for all dataset
+average_polarity = df['polarity'].mean()
+average_subjectivity = df['subjectivity'].mean()
+
+print("Dataframe dengan Polarity dan Subjectivity:")
+print(df)
+
+print("\nRata-rata Polarity dan Subjectivity Keseluruhan:")
+print(f"Polarity: {average_polarity:.2f}, Subjectivity: {average_subjectivity:.2f}")
+
+print(average_polarity)
+print(average_subjectivity)
+
+```
+
+```
+print("Dataframe dengan Polarity dan Subjectivity:")
+Dataframe dengan Polarity dan Subjectivity:
+>>> print(df)
+                                                   URL  ... subjectivity
+0    https://eng.khovar.tj/2022/11/tajikistan-and-r...  ...     0.074000
+1    https://eng.khovar.tj/2021/04/dushanbe-hosts-t...  ...     0.124000
+2    https://eng.khovar.tj/2021/02/tajikistan-and-r...  ...     0.060000
+3    https://eng.khovar.tj/2020/12/tajikistan-and-r...  ...     0.133000
+4    https://eng.khovar.tj/2024/06/foreign-minister...  ...     0.033000
+..                                                 ...  ...          ...
+386       https://news.ivest.kz/news/view/id/134438865  ...     0.080000
+387       https://news.ivest.kz/news/view/id/143587307  ...     0.114114
+388       https://news.ivest.kz/news/view/id/168104754  ...     0.057000
+389        https://news.ivest.kz/news/view/id/27390864  ...     0.251000
+390  https://en.tengrinews.kz/world_news/russia-int...  ...     0.041000
+
+```
