@@ -802,3 +802,23 @@ crocus city hall march: 4
 
 
 ```
+After getting the data analysis from Bigram, I made improvements between the framework and the Bigram narrative in the form of a table. Each framework I gave 6 texts that have high frequency and emotional narratives and are related to the framework.
+
+
+
+### Bigram Analysis by Theme: Analysis of Central Asian Media Discourse on Russian Migrants
+
+| Category               | Top Bigrams                                                                 | Key Insights                                                                 |
+|------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| **Security**           | `current attack crocus city`, `terrorist attack 14 people`                 | Focus on terrorist threats and military operations involving migrants        |
+| **Cultural Identity**  | `adaptation course labor migrants`, `knowledge russian language foreigners` | Cultural/language adaptation as primary challenges                          |
+| **Quality of Life**    | `novel salaries russia higher`, `175 migrants receive payments`            | Economic benefits but require health monitoring systems                     |
+| **Capacity**           | `89 million labor migrants`, `foreigners talented young people`            | Significant human capital potential for development                         |
+| **Political Impact**   | `2024 services passport visa`, `legislation regarding protection workers`  | Visa policies and worker protection as political issues                     |
+| **Public Sentiment**   | `labor migration positive phenomenon`, `fear increase strongholds society` | Polarized views: both support and growing xenophobia                        |
+| **External Regulation**| `traditionally inherent kazakhrasian relations`, `bilateral cooperation`   | Bilateral agreements shaping migration policies                             |
+| **Morality & Ethics**  | `sympathy solidarity families friends`, `money organized illegal visits`   | Ethical dilemmas between solidarity vs. exploitation                        |
+| **Crime**              | `296 foreign citizens illegally`, `crackdown illegal migrants`             | Law enforcement against illegal migration and human trafficking              |
+| **Economy**            | `countries highest shares remittances`, `remittances labor migrants`       | Migrant remittances as significant economic contributors                    |
+
+
