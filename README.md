@@ -866,3 +866,23 @@ From the results of the Bigram analysis that connects the frameworks and news na
 
 ``` 
 ![](datavisual/Sankeydatagraph.png)
+
+Since the data is descriptive and all relationships have the same weight, the thickness of the lines in the visualization is also uniform. The framework relationships can be read from left to right or vice versa.
+
+### Core Framewokrs & Their Intersections
+**Safety**: Dominated by terrorism/war narratives ("detecting crime fighting terrorism")
+   - Directly links to:
+   - Political Implication (e.g., "citizen participating waUkraine"),
+   -  Crime & Punishment (e.g., "basis terrorist group Russia")
+
+**Public Sentiment**: Bridges racial bias and security concerns 
+   - Safety: "attack Crocus City Hall"
+   - Crime: "claims illegal detention police"
+     
+**Policy Frameworks**: Triad of Governance narratives
+   - Capacity & Resources: "potential strengthening bilateral relations"
+   - External Regulator: "creation digital profile migrant"
+   - Political Implication: Visa/ban policies
+
+
+
