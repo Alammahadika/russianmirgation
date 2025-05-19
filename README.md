@@ -822,3 +822,46 @@ After getting the data analysis from Bigram, I made improvements between the fra
 | **Economy**            | `countries highest shares remittances`, `remittances labor migrants`       | Migrant remittances as significant economic contributors                    |
 
 From the results of the Bigram analysis that connects the frameworks and news narratives, it was found that the Safety framework has the highest frequency, with narratives such as "terrorist attack crocus city" and "caution light recent military". This shows that the Safety framework is more associated with the issue of terrorism threats and military activities. Than i created analysis Relation Narrative Framework, aims for find any frameworks into news narrative. 
+
+```r
+# Data frame: Frameworks relation narrative
+
+ sankey_data <- data.frame(
+   source = c("Safety", "Safety", "Public Sentiment", "Public Sentiment", 
+              "Justice Equality", "Quality Life", "External Regulator", 
+              "External Regulator", "Capacity & Resource"),
+   target = c("Political Implication", "Crime & Punishment", 
+              "Safety", "Crime & Punishment", 
+              "Political Implication", "Economy", 
+              "Political Implication", "Crime & Punishment", 
+              "External Regulator"),
+   value = c(1, 1, 1, 1, 1, 1, 1, 1, 1)  # Set semua bobot menjadi 1
+ )
+ 
+ # Load library
+ library(networkD3)
+ 
+ 
+ nodes <- data.frame(name = unique(c(sankey_data$source, sankey_data$target)))
+ 
+ # add ID numeric ke source & target
+ sankey_data$source_id <- match(sankey_data$source, nodes$name) - 1  # ID dimulai dari 0
+ sankey_data$target_id <- match(sankey_data$target, nodes$name) - 1
+ 
+ # creatw Sankey Diagram
+ sankey <- sankeyNetwork(
+   Links = sankey_data, 
+   Nodes = nodes, 
+   Source = "source_id", 
+   Target = "target_id", 
+   Value = "value", 
+   NodeID = "name", 
+   fontSize = 14, 
+   nodeWidth = 20
+ )
+ 
+ # show diagram
+ sankey
+
+
+```r 
