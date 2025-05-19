@@ -1003,4 +1003,4 @@ library(readxl)
 
 ```
 ![](datavisual/SubjectObjectAnalysis.png)
-
+From the graph, the data is spread across all quadrants, indicating that the news has a variety of viewpoints, from very negative and objective to very positive and subjective. The majority of the data is around 0 on the x-axis (polarity), indicating that the news has a neutral sentiment.
