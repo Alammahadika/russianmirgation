@@ -21,7 +21,7 @@ From the table above, analysis can be carried out to determine the indicators an
 ### State of Arts
 In the literature review, this thesis uses keywords based on 1,258 studies on Discourse Migration Policy. All studies were collected from the Scopus Site and created Events and keywords in VOSViewers, then the data was cleaned and produced 32 main keywords.
 
-## 📊 Migration-Related Keywords Frequency Analysis
+### 📊 Migration-Related Keywords Frequency Analysis
 
 | Keyword                | Occurrences | Visual Representation       |
 |------------------------|-------------|-----------------------------|
@@ -592,7 +592,7 @@ The precision results in the classification report show that almost all frames h
   - Relation Narrative Framework
   - Analysis Subjectivits & Polarity
   
-## Latent Dirichlet Allocation (LDA)
+### Latent Dirichlet Allocation (LDA)
 The Latent Dirichlet Allocation (LDA) method of this study analyzes using machine learning to produce the most dominant news distribution patterns. With an approach such as coherence score (n_components) which measures the topic narrative related to the framework. The higher the coherence score, the more relevant the narrative in one news item.
 
 ```python
@@ -697,7 +697,7 @@ library(readxl)
 
 The results of the study show that the most dominant topic is Political Implications, which is the main focus of almost all Central Asian countries except Kazakhstan. Kazakhstan and Uzbekistan have a more even distribution of frameworks compared to Kyrgyzstan, where Political Implications are very dominant. The case shows that Russian policies have a direct impact on all aspects of migrants' lives
 
-## Bigram Text Analysis
+### Bigram Text Analysis
 The following data analysis using the Bigram model aims to identify patterns and dominant word groups from all news. This model groups words that appear frequently (frequency) to simplify the narrative. 
 
 ```py
@@ -883,5 +883,7 @@ Since the data is descriptive and all relationships have the same weight, the th
    - External Regulator: "creation digital profile migrant"
    - Political Implication: Visa/ban policies
 
-
+### Subejectivity & Polarity Analysis
+The purpose of this analysis is to measure positive and negative sentiments in news discourse, then calculate the dominance of positive and negative narratives and read the polarization and subjectivity of the news.
+For avoid point 0.00 (NEUTRAL), my thesis used VADER and Transformer Model.
 
