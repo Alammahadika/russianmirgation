@@ -699,3 +699,106 @@ The results of the study show that the most dominant topic is Political Implicat
 
 ## Bigram Text Analysis
 The following data analysis using the Bigram model aims to identify patterns and dominant word groups from all news. This model groups words that appear frequently (frequency) to simplify the narrative. 
+
+```py
+
+import pandas as pd  
+from sklearn.feature_extraction.text import CountVectorizer  
+from nltk.corpus import stopwords  
+import nltk  
+  
+# install stopwords dari NLTK (just one time to run)  
+nltk.download('stopwords')  
+  
+# Dataframe  
+data = pd.read_excel("/Users/mymac/Downloads/alldominant.xlsx")  
+df = pd.DataFrame(data)  
+  
+# Preprocessing: Lowercase and remove punctuation  
+df['Paragraph_cleaned'] = df['Paragraph'].str.lower().str.replace(r'[^\w\s]', '', regex=True)  
+  
+# Define stopwords  
+stop_words = stopwords.words('english')  # using stopwords dari NLTK  
+  
+# Function to extract bigrams  
+def extract_bigrams(text):  
+    vectorizer = CountVectorizer(ngram_range=(4, 4), stop_words='english')  # using 'english' sebagai stopwords  
+    bigrams = vectorizer.fit_transform([text])  
+    bigram_freq = zip(vectorizer.get_feature_names_out(), bigrams.toarray()[0])  
+    return sorted(bigram_freq, key=lambda x: x[1], reverse=True)  
+  
+# Apply bigram extraction per Framework  
+results = {}  
+for framework in df['Framework'].unique():  
+    combined_text = " ".join(df[df['Framework'] == framework]['Paragraph_cleaned'])  
+    results[framework] = extract_bigrams(combined_text)  
+  
+# Display results  
+for framework, bigrams in results.items():  
+    print(f"Top bigrams for Framework: {framework}")  
+    for bigram, freq in bigrams[:2]:  # Top 5 bigrams  
+        print(f"{bigram}: {freq}")  
+    print()  
+
+```
+
+```
+
+Top bigrams for Framework: Safety 
+foreign labor migration agency: 14
+labor migration agency issued: 6
+
+Top bigrams for Framework: Political Implication
+russian president vladimir putin: 5
+foreign citizens stateless persons: 3
+
+Top bigrams for Framework: Crime and Punishment
+russian ministry internal affairs: 4
+foreign citizens stateless persons: 3
+
+Top bigrams for Framework: Culture Identity 
+16 telegram channel published: 1
+20 focusing extremism risks: 1
+
+Top bigrams for Framework: Public Sentiment
+2008 indicator tripled reports: 2
+47 survey participants russian: 2
+
+Top bigrams for Framework: Justice and Equality
+banned entering country years: 2
+ministry internal affairs russia: 2
+
+Top bigrams for Framework: Quality Life
+120000 tajik citizens suspected: 2
+ago russian authorities published: 2
+
+Top bigrams for Framework: External Regulator
+republic kazakhstan russian federation: 4
+bilateral cooperation exchanged views: 3
+
+Top bigrams for Framework: Economy
+agency external labor migration: 2
+tajik labor migrants russia: 2
+
+Top bigrams for Framework: Capacity and Resources
+applicants opportunity receive higher: 3
+bilateral relations russia turkmenistan: 3
+
+Top bigrams for Framework: Morality and Ethic
+20 organizer faces years: 1
+2022 regular air traffic: 1
+
+Top bigrams for Framework: Economy 
+02 mln transferred russia: 1
+095 mln outgoing transfers: 1
+
+Top bigrams for Framework: Culture Identity
+minister education russian federation: 2
+1000 educational methodological books: 1
+
+Top bigrams for Framework: Safety
+crocus city hall march: 4
+22 thousands people came: 3
+
+
+```
