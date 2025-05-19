@@ -974,3 +974,31 @@ Dataframe dengan Polarity dan Subjectivity:
 390  https://en.tengrinews.kz/world_news/russia-int...  ...     0.041000
 
 ```
+
+```r
+
+  library(ggplot2)
+  ggplot(data_pol_sub, aes(x = sentimen_vader_transformers, y = subjectivity, color = Country)) +
+    geom_point(size = 1.5)+
+    scale_color_manual(values = c(
+      "Kazakhstan" = "blue",   
+      "Kyrgyzstan" = "red",   
+      "Tajikistan" = "green",   
+      "Turkmenistan" = "yellow", 
+      "Uzbekistan" = "black"    
+    )) +
+    theme_bw() +
+    labs(title = "Russian Migration Policy Discourse Central Asia News",
+         subtitle ="By Analysis Subjectivity & Polarity")+
+    theme(plot.title = element_text(face = "bold")) +
+    theme(plot.title = element_text(face = "bold", size = 12),
+          plot.subtitle = element_text(size = 11),
+          plot.caption = element_text(size = 10, hjust = 0)) +
+    theme(plot.margin = margin(t = 10, r = 10, b = 10, l = 10)) +
+    geom_vline(xintercept = 0, linetype = "dashed", color = "grey") +  
+    geom_hline(yintercept = 0.5, linetype = "dashed", color = "grey") 
+
+```
+
+
+
