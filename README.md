@@ -888,71 +888,67 @@ The purpose of this analysis is to measure positive and negative sentiments in n
 For avoid point 0.00 (NEUTRAL), my thesis used VADER and Transformer Model.
 
 ```py
-
 import pandas as pd
 from textblob import TextBlob
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-df = pd.DataFrame(data)
-
-# Inisialisasi VADER 
-
 analyzer = SentimentIntensityAnalyzer()
 
-# for calculations polarity dan subjectivity
 def analyze_sentiment_custom(text):
     scores = analyzer.polarity_scores(text)
-    # Hitung polarity sebagai selisih positif dan negatif
     polarity = scores['pos'] - scores['neg']
-    # Hitung subjectivity sebagai proporsi (positif + negatif) dari total sentiment (positif + negatif + netral)
     subjectivity = (scores['pos'] + scores['neg']) / (scores['pos'] + scores['neg'] + scores['neu'])
     return polarity, subjectivity
 
-#  colums teks
 df[['polarity', 'subjectivity']] = df['Paragraph'].apply(
     lambda x: pd.Series(analyze_sentiment_custom(x))
 )
 
-#  polarity dan subjectivity for all dataset
 average_polarity = df['polarity'].mean()
 average_subjectivity = df['subjectivity'].mean()
 
-print("Dataframe dengan Polarity dan Subjectivity:")
+print("Dataframe Polarity & Subjectivity:")
 print(df)
 
-print("\nRata-rata Polarity dan Subjectivity Keseluruhan:")
+print("\na Polarity & Subjectivity:")
 print(f"Polarity: {average_polarity:.2f}, Subjectivity: {average_subjectivity:.2f}")
 
-
-# Inisialisasi VADER
+#  VADER
 analyzer = SentimentIntensityAnalyzer()
 
-# polarity with VADER
+#  polarity with VADER
 def calculate_polarity_vader(text):
     scores = analyzer.polarity_scores(text)
-    return scores['pos'] - scores['neg']  # Hanya mempertimbangkan positif dan negatif
+    return scores['pos'] - scores['neg']  # just - +
 
-#  subjectivity with TextBlob
+# calculate sub with textblob
 def calculate_subjectivity_textblob(text):
     blob = TextBlob(text)
     return blob.sentiment.subjectivity
 
-# implementation  for polarity and subjectivity
+# implementation  for polarity dan subjectivity
 df['polarity'] = df['Paragraph'].apply(calculate_polarity_vader)
 df['subjectivity'] = df['Paragraph'].apply(calculate_subjectivity_textblob)
 
-#  polarity dan subjectivity for all dataset
+# a polarity dan subjectivity for all dataset
 average_polarity = df['polarity'].mean()
 average_subjectivity = df['subjectivity'].mean()
 
-print("Dataframe dengan Polarity dan Subjectivity:")
+print("Dataframe with Polarity and Subjectivity:")
 print(df)
 
-print("\nRata-rata Polarity dan Subjectivity Keseluruhan:")
-print(f"Polarity: {average_polarity:.2f}, Subjectivity: {average_subjectivity:.2f}")
+# distribution point sentiment compound
+print(df['sentimen_vader_transformers'].value_counts().sort_index())
 
-print(average_polarity)
-print(average_subjectivity)
+#  point VADER compound
+print("\nRata-rata compound VADER:")
+print(df['sentimen_vader_transformers'].mean())
+
+# distribution label (NEGATIVE / POSITIVE / NEUTRAL)
+print("\nDistribusi label sentimen (columns 'text'):")
+print(data['text'].value_counts())
+print("\nPercentage:")
+print(data['text'].value_counts(normalize=True).round(2) * 391))
 
 ```
 
@@ -975,6 +971,47 @@ Dataframe dengan Polarity dan Subjectivity:
 
 print(f"Polarity: {df['polarity'].mean():.2f}, Subjectivity: {df['subjectivity'].mean():.2f}")
 Polarity: -0.00, Subjectivity: 0.27
+
+# distribution point sentiment compound
+>>> print(df['sentimen_vader_transformers'].value_counts().sort_index())
+sentimen_vader_transformers
+-0.9986    1
+-0.9981    1
+-0.9943    1
+-0.9923    1
+-0.9909    1
+          ..
+ 0.9973    1
+ 0.9980    1
+ 0.9983    1
+ 0.9990    1
+ 0.9995    1
+Name: count, Length: 259, dtype: int64
+
+point VADER compound
+print("\n compound VADER:")
+
+ compound VADER:
+print(df['sentimen_vader_transformers'].mean())
+-0.021782864450127802
+
+distribution label (NEGATIVE / POSITIVE / NEUTRAL)
+ print("\nDistribusi label sentimen (columns 'text'):")
+
+Distribusi label sentimen (columns 'text'):
+ print(data['text'].value_counts())
+text
+Positive    196
+Negative    195
+Name: count, dtype: int64
+ print("\nPercentage:")
+
+Percentage:
+print(data['text'].value_counts(normalize=True).round(2) * 391)
+text
+Positive    195.5
+Negative    195.5
+Name: proportion, dtype: float64
 
 ```
 
