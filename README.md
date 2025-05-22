@@ -973,6 +973,9 @@ Dataframe dengan Polarity dan Subjectivity:
 389        https://news.ivest.kz/news/view/id/27390864  ...     0.251000
 390  https://en.tengrinews.kz/world_news/russia-int...  ...     0.041000
 
+print(f"Polarity: {df['polarity'].mean():.2f}, Subjectivity: {df['subjectivity'].mean():.2f}")
+Polarity: -0.00, Subjectivity: 0.27
+
 ```
 
 ```r
